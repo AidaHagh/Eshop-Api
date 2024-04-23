@@ -7,16 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="OrderAgg\**" />
     <Compile Remove="ProductAgg\**" />
-    <EmbeddedResource Remove="OrderAgg\**" />
     <EmbeddedResource Remove="ProductAgg\**" />
-    <None Remove="OrderAgg\**" />
     <None Remove="ProductAgg\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common.Domain\Common.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="OrderAgg\Events\" />
   </ItemGroup>
 
 </Project>
