@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OrderAgg\**" />
+    <Compile Remove="ProductAgg\**" />
+    <EmbeddedResource Remove="OrderAgg\**" />
+    <EmbeddedResource Remove="ProductAgg\**" />
+    <None Remove="OrderAgg\**" />
+    <None Remove="ProductAgg\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common.Domain\Common.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
