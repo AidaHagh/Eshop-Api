@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domain.Services
+namespace Shop.Domain.SellerAgg.Services
 {
     public interface ISellerDomainService
     {

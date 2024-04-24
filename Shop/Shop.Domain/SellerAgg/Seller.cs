@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Shop.Domain.Enum;
-using Shop.Domain.Services;
+using Shop.Domain.SellerAgg.Enum;
+using Shop.Domain.SellerAgg.Services;
 
 namespace Shop.Domain.SellerAgg
 {
