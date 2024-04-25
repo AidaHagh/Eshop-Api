@@ -39,4 +39,3 @@ namespace Shop.Domain.SiteEntities
         }
     }
 }
-}

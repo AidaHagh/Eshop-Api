@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Shop.Domain.OrderAgg.Enum;
+using Shop.Domain.OrderAgg.Events;
 
 namespace Shop.Domain.OrderAgg
 {
