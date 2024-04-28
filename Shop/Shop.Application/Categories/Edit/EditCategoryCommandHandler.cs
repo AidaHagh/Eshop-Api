@@ -1,5 +1,5 @@
 ﻿using Common.Application;
-using Shop.Domain.CategoryAgg.Repository;
+using Shop.Domain.CategoryAgg.IRepository;
 using Shop.Domain.CategoryAgg.Services;
 
 namespace Shop.Application.Categories.Edit

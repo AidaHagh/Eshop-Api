@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domain.OrderAgg.Repository
+namespace Shop.Domain.OrderAgg.IRepository
 {
-    public interface IOrderRepository : IBaseRepository<Order>  
+    public interface IOrderRepository : IBaseRepository<Order>
     {
+        Task<Order> GetCurrentUserOrder(long userId);
     }
 }

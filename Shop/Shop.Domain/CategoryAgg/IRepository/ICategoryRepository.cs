@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Domain.CategoryAgg.Repository
+namespace Shop.Domain.CategoryAgg.IRepository
 {
-    public interface ICategoryRepository :IBaseRepository<Category>
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
-      
+
     }
 }

@@ -2,7 +2,7 @@
 using FluentValidation;
 using Shop.Application.Comments.ChangeStatus;
 using Shop.Domain.CommentAgg.Enum;
-using Shop.Domain.CommentAgg.Repository;
+using Shop.Domain.CommentAgg.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

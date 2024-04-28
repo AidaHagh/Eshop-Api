@@ -1,5 +1,5 @@
 ﻿using Common.Application;
-using Shop.Domain.CommentAgg.Repository;
+using Shop.Domain.CommentAgg.IRepository;
 
 namespace Shop.Application.Comments.Edit
 {
