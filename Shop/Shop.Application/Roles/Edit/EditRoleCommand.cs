@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Application.Rols.Edit
+namespace Shop.Application.Roles.Edit
 {
     public record EditRoleCommand(long Id, string Title, List<Permission> Permissions) : IBaseCommand;
 }

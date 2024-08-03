@@ -15,13 +15,13 @@ public class UserAddress : BaseEntity
     {
 
     }
-    public UserAddress(string shire, string city, string postalCode, string postalAddress,
+    public UserAddress(string province, string city, string postalCode, string postalAddress,
         PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
-        Guard(shire, city, postalCode, postalAddress,
+        Guard(province, city, postalCode, postalAddress,
             phoneNumber, name, family, nationalCode);
 
-        Shire = shire;
+        Province = province;
         City = city;
         PostalCode = postalCode;
         PostalAddress = postalAddress;
@@ -33,7 +33,7 @@ public class UserAddress : BaseEntity
     }
 
     public long UserId { get; internal set; }
-    public string Shire { get; private set; }
+    public string Province { get; private set; }
     public string City { get; private set; }
     public string PostalCode { get; private set; }
     public string PostalAddress { get; private set; }
@@ -43,13 +43,13 @@ public class UserAddress : BaseEntity
     public string NationalCode { get; private set; }
     public bool ActiveAddress { get; private set; }
 
-    public void Edit(string shire, string city, string postalCode, string postalAddress,
+    public void Edit(string province, string city, string postalCode, string postalAddress,
         PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
-        Guard(shire, city, postalCode, postalAddress,
+        Guard(province, city, postalCode, postalAddress,
              phoneNumber, name, family, nationalCode);
 
-        Shire = shire;
+        Province = province;
         City = city;
         PostalCode = postalCode;
         PostalAddress = postalAddress;
@@ -69,13 +69,13 @@ public class UserAddress : BaseEntity
         ActiveAddress = false;
 
     }
-    public void Guard(string shire, string city, string postalCode, string postalAddress,
+    public void Guard(string province, string city, string postalCode, string postalAddress,
         PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
         if (phoneNumber == null)
             throw new NullOrEmptyDomainDataException();
 
-        NullOrEmptyDomainDataException.CheckString(shire, nameof(shire));
+        NullOrEmptyDomainDataException.CheckString(province, nameof(province));
         NullOrEmptyDomainDataException.CheckString(city, nameof(city));
         NullOrEmptyDomainDataException.CheckString(postalCode, nameof(postalCode));
         NullOrEmptyDomainDataException.CheckString(postalAddress, nameof(postalAddress));

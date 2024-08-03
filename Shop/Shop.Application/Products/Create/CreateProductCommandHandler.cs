@@ -30,12 +30,12 @@ internal class CreateProductCommandHandler : IBaseCommandHandler<CreateProductCo
              request.SeoData);
          _repository.Add(product);
 
-        var specifacations = new List<ProductSpecification>();
+        var specifications = new List<ProductSpecification>();
         request.Specifications.ToList().ForEach(specification =>
         {
-            specifacations.Add(new ProductSpecification(specification.Key, specification.Value));
+            specifications.Add(new ProductSpecification(specification.Key, specification.Value));
         });
-        product.SetSpecification(specifacations);
+        product.SetSpecification(specifications);
 
         await _repository.Save();
         return OperationResult.Success();

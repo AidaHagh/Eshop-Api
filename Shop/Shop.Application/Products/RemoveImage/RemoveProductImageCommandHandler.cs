@@ -18,7 +18,7 @@ namespace Shop.Application.Products.RemoveImage
 
         public async Task<OperationResult> Handle(RemoveProductImageCommand request, CancellationToken cancellationToken)
         {
-            var product = await _repository.GetTracking(request.ProductId);
+            var product = await _repository.GetTracking(request.ProductId, cancellationToken);
             if (product == null)
                 return OperationResult.NotFound();
 

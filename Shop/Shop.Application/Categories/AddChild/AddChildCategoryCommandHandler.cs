@@ -17,7 +17,7 @@ namespace Shop.Application.Categories.AddChild
 
         public async Task<OperationResult> Handle(AddChildCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category =await _repository.GetTracking(request.parentId);
+            var category =await _repository.GetTracking(request.parentId, cancellationToken);
             if (category == null)
                 return OperationResult.NotFound();
             category.AddChild(request.title,request.slug,request.SeoData,_domainService);

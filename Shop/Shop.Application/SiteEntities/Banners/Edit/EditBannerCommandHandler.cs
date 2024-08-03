@@ -19,7 +19,7 @@ namespace Shop.Application.SiteEntities.Banners.Edit
 
         public async Task<OperationResult> Handle(EditBannerCommand request, CancellationToken cancellationToken)
         {
-            var banner = await _repository.GetTracking(request.Id);
+            var banner = await _repository.GetTracking(request.Id,cancellationToken);
             if (banner == null)
                 return OperationResult.NotFound();
 

@@ -18,7 +18,7 @@ internal class DeleteSliderCommandHandler : IBaseCommandHandler<DeleteSliderComm
 
     public async Task<OperationResult> Handle(DeleteSliderCommand request, CancellationToken cancellationToken)
         {
-            var slider = await _repository.GetTracking(request.Id);
+            var slider = await _repository.GetTracking(request.Id, cancellationToken);
             if (slider == null) return OperationResult.NotFound();
 
             _repository.Delete(slider);

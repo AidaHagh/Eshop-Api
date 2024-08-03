@@ -17,7 +17,7 @@ internal class EditSellerCommandHandler : IBaseCommandHandler<EditSellerCommand>
 
     public async Task<OperationResult> Handle(EditSellerCommand request, CancellationToken cancellationToken)
     {
-        var seller=await _repository.GetTracking(request.Id);
+        var seller=await _repository.GetTracking(request.Id, cancellationToken);
         if (seller == null)
             return OperationResult.NotFound();
 

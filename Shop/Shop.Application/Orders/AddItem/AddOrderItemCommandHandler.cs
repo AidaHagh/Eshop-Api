@@ -38,14 +38,14 @@ public class AddOrderItemCommandHandler : IBaseCommandHandler<AddOrderItemComman
         }
 
 
-        if (ItemCountBeggerThanInventoryCount(inventory, order))
+        if (ItemCountBiggerThanInventoryCount(inventory, order))
             return OperationResult.Error("تعداد محصولات موجود کمتر از حد درخواستی است.");
 
         await _repository.Save();
         return OperationResult.Success();
     }
 
-    private bool ItemCountBeggerThanInventoryCount(InventoryResult inventory, Order order)
+    private bool ItemCountBiggerThanInventoryCount(InventoryResult inventory, Order order)
     {
         var orderItem = order.Items.First(f => f.InventoryId == inventory.Id);
         if (orderItem.Count > inventory.Count)

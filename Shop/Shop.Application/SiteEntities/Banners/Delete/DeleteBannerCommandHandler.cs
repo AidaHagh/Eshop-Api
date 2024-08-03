@@ -18,7 +18,7 @@ internal class DeleteBannerCommandHandler : IBaseCommandHandler<DeleteBannerComm
 
     public async Task<OperationResult> Handle(DeleteBannerCommand request, CancellationToken cancellationToken)
     {
-        var banner=await _repository.GetTracking(request.Id);
+        var banner=await _repository.GetTracking(request.Id, cancellationToken);
         if (banner == null)
             return OperationResult.NotFound();
 

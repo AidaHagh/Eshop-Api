@@ -4,9 +4,9 @@ using FluentValidation;
 
 namespace Shop.Application.Orders.CheckOut;
 
-public class ChackOutOrderCommandValidator : AbstractValidator<ChackOutOrderCommand>
+public class CheckOutOrderCommandValidator : AbstractValidator<CheckOutOrderCommand>
 {
-    public ChackOutOrderCommandValidator()
+    public CheckOutOrderCommandValidator()
     {
         RuleFor(r => r.Name)
             .NotNull()

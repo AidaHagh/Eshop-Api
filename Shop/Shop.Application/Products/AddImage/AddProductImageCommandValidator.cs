@@ -10,7 +10,7 @@ namespace Shop.Application.Products.AddImage
         {
             RuleFor(r=>r.ImageFile)
                 .NotNull()
-                .WithMessage(ValidationMessages.required("عکس"))
+                .WithMessage(ValidationMessages.required("تصویر"))
                 .JustImageFile();
 
             RuleFor(r => r.OrderOfImage)

@@ -18,7 +18,7 @@ namespace Shop.Application.SiteEntities.Sliders.Edit
         }
         public async Task<OperationResult> Handle(EditSliderCommand request, CancellationToken cancellationToken)
         {
-            var slider = await _repository.GetTracking(request.Id);
+            var slider = await _repository.GetTracking(request.Id, cancellationToken);
             if (slider == null)
                 return OperationResult.NotFound();
 

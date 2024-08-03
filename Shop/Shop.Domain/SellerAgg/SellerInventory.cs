@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Shop.Domain.SellerAgg
 {
     public class SellerInventory : BaseEntity
     {
-        public SellerInventory(long productId, int count, int price, int? discountPercentage = null)
+        public SellerInventory(long productId, int count, int price,
+            int? discountPercentage = null, string? color = null)
         {
             if (price < 1 || count < 0)
                 throw new InvalidDomainDataException();
@@ -19,6 +21,7 @@ namespace Shop.Domain.SellerAgg
             Count = count;
             Price = price;
             DiscountPercentage = discountPercentage;
+            Color = color;
         }
 
         public long SellerId { get; internal set; }
@@ -26,9 +29,11 @@ namespace Shop.Domain.SellerAgg
         public int Count { get; private set; }
         public int Price { get; private set; }
         public int? DiscountPercentage { get; private set; }
+        public string? Color { get; private set; }
 
 
-        public void Edit(int count, int price, int? discountPercentage = null)
+        public void Edit(int count, int price, int? discountPercentage = null,
+            string? color = null)
         {
             if (price < 1 || count < 0)
                 throw new InvalidDomainDataException();
@@ -36,6 +41,8 @@ namespace Shop.Domain.SellerAgg
             Count = count;
             Price = price;
             DiscountPercentage = discountPercentage;
+            Color = color;
+
         }
     }
 }

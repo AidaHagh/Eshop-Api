@@ -9,10 +9,10 @@ namespace Shop.Domain.OrderAgg
 {
     public class OrderAddress : BaseEntity
     {
-        public OrderAddress(string shire, string city, string postalCode, string postalAddress,
+        public OrderAddress(string province, string city, string postalCode, string postalAddress,
             string phoneNumber, string name, string family, string nationalCode)
         {
-            Shire = shire;
+            Province = province;
             City = city;
             PostalCode = postalCode;
             PostalAddress = postalAddress;
@@ -23,7 +23,7 @@ namespace Shop.Domain.OrderAgg
         }
 
         public long OrderId { get; internal set; }
-        public string Shire { get; private set; }
+        public string Province { get; private set; }
         public string City { get; private set; }
         public string PostalCode { get; private set; }
         public string PostalAddress { get; private set; }

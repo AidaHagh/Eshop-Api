@@ -1,7 +1,7 @@
 ﻿using Common.Application.Validation;
 using FluentValidation;
 
-namespace Shop.Application.Rols.Edit
+namespace Shop.Application.Roles.Edit
 {
     public class EditRoleCommandValidator : AbstractValidator<EditRoleCommand>
     {

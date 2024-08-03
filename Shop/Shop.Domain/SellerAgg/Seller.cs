@@ -57,19 +57,19 @@ namespace Shop.Domain.SellerAgg
         public void AddInventory(SellerInventory inventory)
         {
             if (Inventories.Any(f => f.ProductId == inventory.ProductId))
-                throw new InvalidDomainDataException("این محصول قبلا ثبت شده است.");
+                throw new IsExistDataException("این محصول قبلا ثبت شده است.");
 
             Inventories.Add(inventory);
         }
 
-        public void EditInventory(long inventoryId, int count, int price, int? discountPercentage)
+        public void EditInventory(long inventoryId, int count, int price, int? discountPercentage,string? color)
         {
             var currentInventory = Inventories.FirstOrDefault(f => f.Id == inventoryId);
             if (currentInventory == null)
                 throw new NullOrEmptyDomainDataException("محصول یافت نشد");
 
             //TODO Check Inventories
-            currentInventory.Edit(count, price, discountPercentage);
+            currentInventory.Edit(count, price, discountPercentage,color);
         }
 
         public void Guard(string shopName, string nationalCode)

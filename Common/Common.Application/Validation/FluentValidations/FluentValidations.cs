@@ -9,54 +9,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Application.Validation.FluentValidations
+namespace Common.Application.Validation.FluentValidations;
+
+public static class FluentValidations
 {
-    public static class FluentValidations
+    public static IRuleBuilderOptionsConditions<T, TProperty> JustImageFile<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder, string errorMessage = "شما فقط قادر به وارد کردن عکس میباشید") where TProperty : IFormFile?
     {
-        public static IRuleBuilderOptionsConditions<T, TProperty> JustImageFile<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder, string errorMessage = "شما فقط قادر به وارد کردن عکس میباشید") where TProperty : IFormFile?
+        return ruleBuilder.Custom((file, context) =>
         {
-            return ruleBuilder.Custom((file, context) =>
+            if (file == null)
+                return;
+
+            if (!ImageValidator.IsImage(file))
             {
-                if (file == null)
-                    return;
+                context.AddFailure(errorMessage);
+            }
+        });
+    }
 
-                if (!ImageValidator.IsImage(file))
-                {
-                    context.AddFailure(errorMessage);
-                }
-            });
-        }
-
-        public static IRuleBuilderOptionsConditions<T, string> ValidNationalId<T>(this IRuleBuilder<T, string> ruleBuilder, string errorMessage = "کدملی نامعتبر است")
+    public static IRuleBuilderOptionsConditions<T, string> ValidNationalId<T>(this IRuleBuilder<T, string> ruleBuilder, string errorMessage = "کدملی نامعتبر است")
+    {
+        return ruleBuilder.Custom((nationalCode, context) =>
         {
-            return ruleBuilder.Custom((nationalCode, context) =>
-            {
-                if (IranianNationalIdChecker.IsValid(nationalCode) == false)
-                    context.AddFailure(errorMessage);
-            });
-        }
-        public static IRuleBuilderOptionsConditions<T, string> ValidPhoneNumber<T>(this IRuleBuilder<T, string> ruleBuilder, string errorMessage = ValidationMessages.InvalidPhoneNumber)
+            if (IranianNationalIdChecker.IsValid(nationalCode) == false)
+                context.AddFailure(errorMessage);
+        });
+    }
+    public static IRuleBuilderOptionsConditions<T, string> ValidPhoneNumber<T>(this IRuleBuilder<T, string> ruleBuilder, string errorMessage = ValidationMessages.InvalidPhoneNumber)
+    {
+        return ruleBuilder.Custom((phoneNumber, context) =>
         {
-            return ruleBuilder.Custom((phoneNumber, context) =>
-            {
-                if (string.IsNullOrWhiteSpace(phoneNumber) || phoneNumber.Length is < 11 or > 11)
-                    context.AddFailure(errorMessage);
+            if (string.IsNullOrWhiteSpace(phoneNumber) || phoneNumber.Length is < 11 or > 11)
+                context.AddFailure(errorMessage);
 
-            });
-        }
+        });
+    }
 
-        public static IRuleBuilderOptionsConditions<T, TProperty> JustValidFile<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder, string errorMessage = "فایل نامعتبر است") where TProperty : IFormFile
+    public static IRuleBuilderOptionsConditions<T, TProperty> JustValidFile<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder, string errorMessage = "فایل نامعتبر است") where TProperty : IFormFile
+    {
+        return ruleBuilder.Custom((file, context) =>
         {
-            return ruleBuilder.Custom((file, context) =>
-            {
-                if (file == null)
-                    return;
+            if (file == null)
+                return;
 
-                if (!FileValidation.IsValidFile(file))
-                {
-                    context.AddFailure(errorMessage);
-                }
-            });
-        }
+            if (!FileValidation.IsValidFile(file))
+            {
+                context.AddFailure(errorMessage);
+            }
+        });
     }
 }
+

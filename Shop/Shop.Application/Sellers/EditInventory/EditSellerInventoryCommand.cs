@@ -10,13 +10,14 @@ namespace Shop.Application.Sellers.EditInventory
     public class EditSellerInventoryCommand :IBaseCommand
     {
         public EditSellerInventoryCommand(long inventoryId, long sellerId, int count,
-            int price, int? discountPercentage)
+            int price, int? discountPercentage,string? color)
         {
             InventoryId = inventoryId;
             SellerId = sellerId;
             Count = count;
             Price = price;
             DiscountPercentage = discountPercentage;
+            Color= color;
         }
 
         public long InventoryId { get; private set; }
@@ -24,5 +25,6 @@ namespace Shop.Application.Sellers.EditInventory
         public int Count { get; private set; }
         public int Price { get; private set; }
         public int? DiscountPercentage { get; private set; }
+        public string? Color { get; private set; }
     }
 }

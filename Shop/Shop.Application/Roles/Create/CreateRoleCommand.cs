@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Application.Rols.Create
+namespace Shop.Application.Roles.Create
 {
     public record CreateRoleCommand(string Title, List<Permission> Permissions) : IBaseCommand;
 }

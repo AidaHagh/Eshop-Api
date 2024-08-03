@@ -2,7 +2,7 @@
 using Shop.Domain.RoleAgg;
 using Shop.Domain.RoleAgg.IRepository;
 
-namespace Shop.Application.Rols.Edit
+namespace Shop.Application.Roles.Edit
 {
     internal class EditRoleCommandHandler : IBaseCommandHandler<EditRoleCommand>
     {
@@ -15,18 +15,18 @@ namespace Shop.Application.Rols.Edit
 
         public async Task<OperationResult> Handle(EditRoleCommand request, CancellationToken cancellationToken)
         {
-            var role=await _repository.GetTracking(request.Id);
+            var role = await _repository.GetTracking(request.Id, cancellationToken);
             if (role == null)
                 return OperationResult.NotFound();
 
             role.Edit(request.Title);
 
-            var permitions=new List<RolePermission>();
+            var permissions = new List<RolePermission>();
             request.Permissions.ForEach(p =>
             {
-                permitions.Add(new RolePermission(p));  
+                permissions.Add(new RolePermission(p));
             });
-            role.SetPermissions(permitions);
+            role.SetPermissions(permissions);
             await _repository.Save();
             return OperationResult.Success();
         }

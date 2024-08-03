@@ -41,7 +41,6 @@ public class User : AggregateRoot
     public string Password { get; private set; }
     public string AvatarName { get; set; }
     public bool IsActive { get; set; }
-
     public Gender Gender { get; private set; }
     public List<UserRole> Roles { get; }
     public List<Wallet> Wallets { get; }
@@ -99,7 +98,7 @@ public class User : AggregateRoot
             throw new NullOrEmptyDomainDataException("Address Not found");
 
 
-        oldAddress.Edit(address.Shire, address.City, address.PostalCode, address.PostalAddress, address.PhoneNumber,
+        oldAddress.Edit(address.Province, address.City, address.PostalCode, address.PostalAddress, address.PhoneNumber,
             address.Name, address.Family, address.NationalCode);
     }
 
@@ -161,13 +160,14 @@ public class User : AggregateRoot
                 throw new InvalidDomainDataException(" ایمیل  نامعتبر است");
 
         if (phoneNumber != PhoneNumber)
-            if (userDomainService.PhoneNumberIsExist(phoneNumber))
+            if (userDomainService.IsExistPhoneNumber(phoneNumber))
                 throw new InvalidDomainDataException("شماره موبایل تکراری است");
 
         if (email != Email)
-            if (userDomainService.IsEmailExist(email))
+            if (userDomainService.IsExistEmail(email))
                 throw new InvalidDomainDataException("ایمیل تکراری است");
     }
 }
+
 
 
