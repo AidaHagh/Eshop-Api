@@ -7,16 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Create\" />
-    <Folder Include="Users\ChargeWallet\" />
-    <Folder Include="Users\AddAddress\" />
-    <Folder Include="Users\DeleteAddress\" />
-    <Folder Include="Users\EditAddress\" />
-    <Folder Include="Users\Edit\" />
-    <Folder Include="Users\Register\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Application\Common.Application.csproj" />
     <ProjectReference Include="..\Shop.Domain\Shop.Domain.csproj" />
   </ItemGroup>
