@@ -31,7 +31,7 @@ public class User : AggregateRoot
         Roles = new();
         Wallets = new();
         Addresses = new();
-        //Tokens = new();
+        Tokens = new();
     }
 
     public string Name { get; private set; }
@@ -45,7 +45,7 @@ public class User : AggregateRoot
     public List<UserRole> Roles { get; }
     public List<Wallet> Wallets { get; }
     public List<UserAddress> Addresses { get; }
-   // public List<UserToken> Tokens { get; }
+    public List<UserToken> Tokens { get; }
 
     public void Edit(string name, string family, string phoneNumber, string email,
         Gender gender, IUserDomainService userDomainService)
