@@ -12,9 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SiteEntities\" />
-    <Folder Include="Sellers\" />
-    <Folder Include="Roles\" />
     <Folder Include="Users\" />
   </ItemGroup>
 
