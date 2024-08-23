@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Application;
+using Shop.Application.SiteEntities.Sliders.Create;
+using Shop.Application.SiteEntities.Sliders.Edit;
+using Shop.Domain.SiteEntities;
+using Shop.Query.SiteEntities.DTOs;
+
 
 namespace Shop.Presentation.Facade.SiteEntities.Sliders
 {
     public interface ISliderFacade
     {
-    }    
-    
-    internal class SliderFacade : ISliderFacade
-    {
+        Task<OperationResult> CreateSlider(CreateSliderCommand command);
+        Task<OperationResult> EditSlider(EditSliderCommand command);
+        Task<OperationResult> DeleteSlider(long sliderId);
+
+
+        Task<SliderDto?> GetSliderById(long sliderId); 
+        Task<List<SliderDto>> GetSlidersList(); 
     }
 }
