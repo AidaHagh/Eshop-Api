@@ -6,17 +6,17 @@ using Shop.Domain.UserAgg.Services;
 
 namespace Shop.Application.Users.Create;
 
-internal class CreateCommandUserHandler : IBaseCommandHandler<CreateCommandUser>
+internal class CreateUserCommandHandler : IBaseCommandHandler<CreateUserCommand>
 {
     private readonly IUserRepository _repository;
     private readonly IUserDomainService _domainService;
-    public CreateCommandUserHandler(IUserRepository repository, IUserDomainService domainService)
+    public CreateUserCommandHandler(IUserRepository repository, IUserDomainService domainService)
     {
         _repository = repository;
         _domainService = domainService;
     }
 
-    public async Task<OperationResult> Handle(CreateCommandUser request, CancellationToken cancellationToken)
+    public async Task<OperationResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
         var hashPassword = Sha256Hasher.Hash(request.Password);
         var user = new User(request.Name, request.Family, request.PhoneNumber,

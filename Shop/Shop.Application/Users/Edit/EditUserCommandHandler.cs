@@ -7,20 +7,20 @@ using Shop.Domain.UserAgg.Services;
 
 namespace Shop.Application.Users.Edit
 {
-    internal class EditCommandUserHandler : IBaseCommandHandler<EditCommandUser>
+    internal class EditUserCommandHandler : IBaseCommandHandler<EditUserCommand>
     {
         private readonly IUserDomainService _domainService;
         private readonly IUserRepository _Repository;
         private readonly IFileService _fileService;
 
-        public EditCommandUserHandler(IUserDomainService domainService, IUserRepository userRepository, IFileService fileService)
+        public EditUserCommandHandler(IUserDomainService domainService, IUserRepository userRepository, IFileService fileService)
         {
             _domainService = domainService;
             _Repository = userRepository;
             _fileService = fileService;
         }
 
-        public async Task<OperationResult> Handle(EditCommandUser request, CancellationToken cancellationToken)
+        public async Task<OperationResult> Handle(EditUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _Repository.GetTracking(request.UserId, cancellationToken);
             if (user == null)

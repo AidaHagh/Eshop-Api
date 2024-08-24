@@ -4,9 +4,9 @@ using FluentValidation;
 
 namespace Shop.Application.Users.Create;
 
-public class CreateCommandUserValidator : AbstractValidator<CreateCommandUser>
+public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 {
-    public CreateCommandUserValidator()
+    public CreateUserCommandValidator()
     {
         RuleFor(r => r.PhoneNumber)
             .ValidPhoneNumber();

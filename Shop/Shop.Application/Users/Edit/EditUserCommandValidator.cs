@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Shop.Application.Users.Edit
 {
-    public class EditCommandUserValidator : AbstractValidator<EditCommandUser>
+    public class EditUserCommandValidator : AbstractValidator<EditUserCommand>
     {
-        public EditCommandUserValidator()
+        public EditUserCommandValidator()
         {
             RuleFor(r => r.PhoneNumber)
                 .ValidPhoneNumber();       

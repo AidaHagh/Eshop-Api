@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Shop.Application.Users.Create;
 
-public class CreateCommandUser : IBaseCommand
+public class CreateUserCommand : IBaseCommand
 {
-    public CreateCommandUser(string name, string family, string phoneNumber,
+    public CreateUserCommand(string name, string family, string phoneNumber,
         string email, string password, Gender gender)
     {
         Name = name;

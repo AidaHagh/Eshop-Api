@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace Shop.Application.Users.Edit
 {
-    public class EditCommandUser : IBaseCommand
+    public class EditUserCommand : IBaseCommand
     {
-        public EditCommandUser(long userId, string name, string family,
+        public EditUserCommand(long userId, string name, string family,
             string phoneNumber, string email, string password, IFormFile? avatarName, Gender gender)
         {
             UserId = userId;
